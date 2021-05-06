@@ -30,7 +30,7 @@ def responseSlotAvailability(api_response, date_param):
     record_dict = json_data['sessions']
     
     if len(record_dict) == 0 :
-        return "<h1>NO SESSIONS AVAILABLE for " + date_param + "</h1>"
+        return render_template('sess_not_found.html', date_param=date_param)
     
     ColumnNames = getColumnNames(record_dict)
 
