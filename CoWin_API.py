@@ -26,13 +26,13 @@ def genericStateInfo():
     
     return render_template('session_template.html', records=record_dict, colnames=ColumnNames)
 
-@app.route('/districtsByState/<dist_id>')
-@app.route('/districtsBystate/<dist_id>')
-@app.route('/districtsbyState/<dist_id>')
-@app.route('/districtsbystate/<dist_id>')
-def genericDistrictsByState(dist_id=None):
+@app.route('/districtsByState/<state_id>')
+@app.route('/districtsBystate/<state_id>')
+@app.route('/districtsbyState/<state_id>')
+@app.route('/districtsbystate/<state_id>')
+def genericDistrictsByState(state_id=None):
     
-    api_response = requests.get('https://cdn-api.co-vin.in/api/v2/admin/location/districts/' + str(dist_id) )
+    api_response = requests.get('https://cdn-api.co-vin.in/api/v2/admin/location/districts/' + str(state_id) )
     json_data = json.loads(api_response.text)
     record_dict = json_data['districts']
     ColumnNames = getColumnNames(record_dict)
